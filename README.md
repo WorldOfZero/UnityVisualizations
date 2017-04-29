@@ -20,3 +20,8 @@ Perhaps not the most efficient way to solve this problem, but an easy way to do 
 ## Other Effects
 #### [Twinkle - Gradient Shift Image Effect](https://github.com/WorldOfZero/Twinkle-AGJam/tree/master/Assets/Twinkle/Shaders)
 Twinkle was a game developed for the [Audio Game Jam of 2016](http://jams.gamejolt.io/AGJam). This gradient shift was the only visual effect in the entire game and was designed to visualize the position and intensity of sounds. The entire project is open sourced including a full web server for synchronizing worlds between players.
+
+## Other Handy Projects
+Some other visual effects that other's have made.
+#### [Helpful Scripts by Chris Wade](https://github.com/cjacobwade/HelpfulScripts)
+The developer of [Sausage Sports Club](http://sausagesports.club). This repository includes things like advaned decals, fog and other neat effects.
