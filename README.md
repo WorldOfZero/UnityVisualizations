@@ -8,6 +8,9 @@ An introductory image effect designed to reduce the number of horizontal and ver
 #### [Reality - Trace Effect](http://gamejolt.com/games/reality/106584)
 Developed for Reality as part of the [Asylum Jam 2015](http://gamejolt.com/tag/asylumjam2015). Creates a "trace" from a given object that reveals the vertex color of the object under it.
 
+#### [Red - TV Grain](http://gamejolt.com/games/red/207577)
+Developed for the [Asylum Jam 2016](http://gamejolt.com/tag/asylumjam2016). This was used to render the TV's blur in Red. Adds random noise "grain" to a texture.
+
 #### [Revealing Flashlight](https://youtu.be/b4utgRuIekk)
 Shader which is revealed by a spotlight and invisible in all other cases.
 
