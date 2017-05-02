@@ -2,6 +2,9 @@
 Collection of shaders and visual effects created for Unity 3D. Most of these have been developed as a part of my [World of Zero YouTube channel](https://www.youtube.com/worldofzerodevelopment).
 
 ## Packages
+#### [Contour Map](https://youtu.be/AK8oV4BzrW4)
+A quick and easy way to draw cartographic maps with contour lines using a Heightmap.
+
 #### [Pixelating Image Effect](https://www.youtube.com/watch?v=9bTFVaKGIIQ)
 An introductory image effect designed to reduce the number of horizontal and vertical pixels to a fixed amount.
 
