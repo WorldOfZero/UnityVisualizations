@@ -5,6 +5,9 @@ Collection of shaders and visual effects created for Unity 3D. Most of these hav
 #### [Contour Map](https://youtu.be/AK8oV4BzrW4)
 A quick and easy way to draw cartographic maps with contour lines using a Heightmap.
 
+#### [Night Vision Camera Effect](https://youtu.be/mElPESXcakM)
+An image effect inspired by the Outlast video game series which uses a combination of the depth map and the scenes albedo to illuminate the world.
+
 #### [Pixelating Image Effect](https://www.youtube.com/watch?v=9bTFVaKGIIQ)
 An introductory image effect designed to reduce the number of horizontal and vertical pixels to a fixed amount.
 
