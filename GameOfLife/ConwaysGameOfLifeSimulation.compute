@@ -1,0 +1,60 @@
+﻿// Implementation of Conways Game Of Life on the GPU: https://en.wikipedia.org/wiki/Game_of_Life
+// 1. Any live cell with fewer than two live neighbours dies, as if caused by underpopulation.
+// 2. Any live cell with two or three live neighbours lives on to the next generation.
+// 3. Any live cell with more than three live neighbours dies, as if by overpopulation.
+// 4. Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.
+
+// Each #kernel tells which function to compile; you can have many kernels
+#pragma kernel GameOfLife
+
+float Width;
+float Height;
+sampler2D Input;
+
+// Create a RenderTexture with enableRandomWrite flag and set it
+// with cs.SetTexture
+RWTexture2D<float4> Result;
+
+[numthreads(8,8,1)]
+void GameOfLife (uint3 id : SV_DispatchThreadID)
+{
+	float2 position = float2((id.x) / Width, (id.y) / Height);
+	float2 pixelSize = float2(1.0 / Width, 1.0 / Height);
+
+	// TODO: insert actual code here!
+	float4 currentPixel = tex2Dlod(Input, float4(position.x, position.y, 0, 0));
+
+	float4 neighborPixels = float4(0,0,0,0);
+	// +Y
+	neighborPixels += tex2Dlod(Input, float4(position.x + pixelSize.x, position.y + pixelSize.y, 0, 0));
+	neighborPixels += tex2Dlod(Input, float4(position.x, position.y + pixelSize.y, 0, 0));
+	neighborPixels += tex2Dlod(Input, float4(position.x - pixelSize.x, position.y + pixelSize.y, 0, 0));
+	// Neutral Y
+	neighborPixels += tex2Dlod(Input, float4(position.x + pixelSize.x, position.y, 0, 0));
+	neighborPixels += tex2Dlod(Input, float4(position.x - pixelSize.x, position.y, 0, 0));
+	// -Y
+	neighborPixels += tex2Dlod(Input, float4(position.x + pixelSize.x, position.y - pixelSize.y, 0, 0));
+	neighborPixels += tex2Dlod(Input, float4(position.x, position.y - pixelSize.y, 0, 0));
+	neighborPixels += tex2Dlod(Input, float4(position.x - pixelSize.x, position.y - pixelSize.y, 0, 0));
+	// Add current pixel for reason
+	//neighborPixels += currentPixel;
+
+	if (currentPixel.r > 0.5) {
+		if (neighborPixels.r > 1.5 && neighborPixels.r < 3.5) { //Between 2 and 3
+			Result[id.xy] = float4(1, 1, 1, 1);
+		}
+		else {
+			Result[id.xy] = float4(0, 0, 0, 1);
+		}
+	}
+	else {
+		if (neighborPixels.r > 2.5 && neighborPixels.r < 3.5) { // == 3
+			Result[id.xy] = float4(1, 1, 1, 1);
+		}
+		else {
+			Result[id.xy] = float4(0, 0, 0, 1);
+		}
+	}
+
+	//Result[id.xy] = neighborPixels / 9;
+}

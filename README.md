@@ -5,6 +5,9 @@ Collection of shaders and visual effects created for Unity 3D. Most of these hav
 #### [Contour Map](https://youtu.be/AK8oV4BzrW4)
 A quick and easy way to draw cartographic maps with contour lines using a Heightmap.
 
+#### [Game of Life](https://youtu.be/ItPTBSeGjdM)
+An implementation of Conway's Game of Life using Unity 3D Compute Shaders
+
 #### [Night Vision Camera Effect](https://youtu.be/mElPESXcakM)
 An image effect inspired by the Outlast video game series which uses a combination of the depth map and the scenes albedo to illuminate the world.
 
