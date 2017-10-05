@@ -5,6 +5,9 @@ Collection of shaders and visual effects created for Unity 3D. Most of these hav
 #### [Contour Map](https://youtu.be/AK8oV4BzrW4)
 A quick and easy way to draw cartographic maps with contour lines using a Heightmap.
 
+#### [Fake Volumetric Lighting](https://youtu.be/nX682vFtT6I)
+Simple volumetric spotlights that use vertex colors to simulate a volumetric cone of light.
+
 #### [Game of Life](https://youtu.be/ItPTBSeGjdM)
 An implementation of Conway's Game of Life using Unity 3D Compute Shaders
 
