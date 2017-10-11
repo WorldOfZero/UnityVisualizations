@@ -2,6 +2,9 @@
 Collection of shaders and visual effects created for Unity 3D. Most of these have been developed as a part of my [World of Zero YouTube channel](https://www.youtube.com/worldofzerodevelopment).
 
 ## Packages
+#### Bezier Curves [1](https://youtu.be/tgCFzoG_BJM) [2](https://youtu.be/4zizgh2duqY)
+Extend Unity's Line Renderer to enable drawing Bezier Curves with an unlimited number of points
+
 #### [Contour Map](https://youtu.be/AK8oV4BzrW4)
 A quick and easy way to draw cartographic maps with contour lines using a Heightmap.
 
