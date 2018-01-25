@@ -17,6 +17,9 @@ An implementation of Conway's Game of Life using Unity 3D Compute Shaders
 #### [Night Vision Camera Effect](https://youtu.be/mElPESXcakM)
 An image effect inspired by the Outlast video game series which uses a combination of the depth map and the scenes albedo to illuminate the world.
 
+#### [Particle Shaders](https://youtu.be/2TBCozxI7-I)
+A collection of shaders designed for particle systems.
+
 #### [Pixelating Image Effect](https://www.youtube.com/watch?v=9bTFVaKGIIQ)
 An introductory image effect designed to reduce the number of horizontal and vertical pixels to a fixed amount.
 
