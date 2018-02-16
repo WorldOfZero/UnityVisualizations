@@ -32,6 +32,9 @@ Developed for the [Asylum Jam 2016](http://gamejolt.com/tag/asylumjam2016). This
 #### [Revealing Flashlight](https://youtu.be/b4utgRuIekk)
 Shader which is revealed by a spotlight and invisible in all other cases.
 
+#### [Shield Shader](https://www.youtube.com/watch?v=NeZcAYJdkv4&list=PLEwYhelKHmihp8GNb-XXWE5VhqikYwluj)
+An energy shield shader that reacts to impacts against it.
+
 #### [Squishy Sphere](https://www.youtube.com/playlist?list=PLEwYhelKHmig3VnNBTurD98bDWR1oCRM-)
 Sphere shader that causes them to collapse as they collide with a plane.
 
