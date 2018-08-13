@@ -50,9 +50,9 @@ public class ChunkMeshGenerator : MonoBehaviour {
             }
         }
 
-        mesh.vertices = generatedVertices.ToArray();
-        mesh.colors = generatedColors.ToArray();
-        mesh.triangles = generatedTriangles.ToArray();
+        mesh.SetVertices(generatedVertices);
+        mesh.SetColors(generatedColors);
+        mesh.SetTriangles(generatedTriangles);
 
         return mesh;
     }
