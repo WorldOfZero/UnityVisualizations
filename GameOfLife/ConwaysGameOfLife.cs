@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,19 +10,40 @@ public class ConwaysGameOfLife : MonoBehaviour
     public int height = 512;
 
     public ComputeShader compute;
-    public RenderTexture result;
+    public RenderTexture renderTexPing;
+    public RenderTexture renderTexPong;
 
     public Material material;
 
-    public bool step = false;
-
-    //TODO: Implement double buffering
+    private int kernel;
+    private bool pingPong;
 
 	// Use this for initialization
 	void Start () {
-	    result = new RenderTexture(width, height, 24);
-	    result.enableRandomWrite = true;
-	    result.Create();
+        if (height < 1 || width < 1) return;
+
+        kernel = compute.FindKernel("GameOfLife");
+
+        renderTexPing = new RenderTexture(width, height, 24);
+        renderTexPing.wrapMode = TextureWrapMode.Repeat;
+        renderTexPing.enableRandomWrite = true;
+        renderTexPing.filterMode = FilterMode.Point;
+        renderTexPing.useMipMap = false;
+        renderTexPing.Create();
+
+        renderTexPong = new RenderTexture(width, height, 24);
+        renderTexPong.wrapMode = TextureWrapMode.Repeat;
+        renderTexPong.enableRandomWrite = true;
+        renderTexPong.filterMode = FilterMode.Point;
+        renderTexPong.useMipMap = false;
+        renderTexPong.Create();
+
+        Graphics.Blit(input, renderTexPing);
+
+        pingPong = true;
+
+        compute.SetFloat("Width", width);
+        compute.SetFloat("Height", height);
     }
 	
 	// Update is called once per frame
@@ -32,23 +53,25 @@ public class ConwaysGameOfLife : MonoBehaviour
 	    //step = false;
 	    if (height < 1 || width < 1) return;
 
-	    int kernel = compute.FindKernel("GameOfLife");
+        if (true == pingPong)
+        {
+            compute.SetTexture(kernel, "Input", renderTexPing);
+            compute.SetTexture(kernel, "Result", renderTexPong);
+            compute.Dispatch(kernel, width / 8, height / 8, 1);
 
-	    compute.SetTexture(kernel, "Input", input);
-	    compute.SetFloat("Width", width);
-	    compute.SetFloat("Height", height);
+            material.mainTexture = renderTexPong;
 
-	    result = new RenderTexture(width, height, 24);
-        result.wrapMode = TextureWrapMode.Repeat;
-	    result.enableRandomWrite = true;
-        result.filterMode = FilterMode.Point;
-	    result.useMipMap = false;
-	    result.Create();
+            pingPong = false;
+        }
+        else
+        {
+            compute.SetTexture(kernel, "Input", renderTexPong);
+            compute.SetTexture(kernel, "Result", renderTexPing);
+            compute.Dispatch(kernel, width / 8, height / 8, 1);
 
-	    compute.SetTexture(kernel, "Result", result);
-	    compute.Dispatch(kernel, width / 8, height / 8, 1);
+            material.mainTexture = renderTexPing;
 
-	    input = result;
-	    material.mainTexture = input;
+            pingPong = true;
+        }
 	}
 }
