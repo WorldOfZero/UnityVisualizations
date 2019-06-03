@@ -20,13 +20,13 @@ public class GrassPointCloudRenderer : MonoBehaviour {
     public float startHeight = 1000;
     public float grassOffset = 0.0f;
 
-    private Vector3 lastPosition;
+    private Vector3? lastPosition = null;
     private List<Matrix4x4> materices;
 
     // Update is called once per frame
     void Update()
     {
-        if (lastPosition != this.transform.position)
+        if (!lastPosition.HasValue || lastPosition != this.transform.position)
         {
             Random.InitState(seed);
             List<Vector3> positions = new List<Vector3>(grassNumber);
@@ -35,7 +35,7 @@ public class GrassPointCloudRenderer : MonoBehaviour {
             List<Vector3> normals = new List<Vector3>(grassNumber);
             for (int i = 0; i < grassNumber; ++i)
             {
-                Vector3 origin = transform.position;
+                Vector3 origin = this.transform.position;
                 origin.y = startHeight;
                 origin.x += size.x * Random.Range(-0.5f, 0.5f);
                 origin.z += size.y * Random.Range(-0.5f, 0.5f);
@@ -43,12 +43,11 @@ public class GrassPointCloudRenderer : MonoBehaviour {
                 RaycastHit hit;
                 if (Physics.Raycast(ray, out hit))
                 {
-                    origin = hit.point;
-                    origin.y += grassOffset;
-                    origin.x -= this.transform.position.x;
-                    origin.z -= this.transform.position.z;
+                    var grassPosition = hit.point;
+                    grassPosition.y += grassOffset;
+                    grassPosition -= this.transform.position;
 
-                    positions.Add(origin);
+                    positions.Add(grassPosition);
                     indicies[i] = i;
                     colors.Add(new Color(Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f), 1));
                     normals.Add(hit.normal);
