@@ -52,7 +52,7 @@ public class ChunkMeshGenerator : MonoBehaviour {
 
         mesh.SetVertices(generatedVertices);
         mesh.SetColors(generatedColors);
-        mesh.SetTriangles(generatedTriangles);
+        mesh.SetTriangles(generatedTriangles, 0);
 
         return mesh;
     }
