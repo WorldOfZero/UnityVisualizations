@@ -60,6 +60,10 @@ Sphere shader that causes them to collapse as they collide with a plane.
 
 Perhaps not the most efficient way to solve this problem, but an easy way to do it. Allows animating various [Morph3D](https://www.morph3d.com) trait "groups" in order to simulate aging. Developed originally for Tranquility in the [Music Video Jam of 2016](http://gamejolt.com/tag/mvjam16).
 
+#### [Transformation Cube](https://www.youtube.com/watch?v=VzhxginBhdc)
+
+A shader that can skew and rotate the vertices of a mesh in real time.
+
 #### Unity Terrain - [Grass](https://www.youtube.com/playlist?list=PLEwYhelKHmigG2uo6zW-LNKtmYUHpC5z4)
 
 Unity terrain is a collection designed around building immersive (and awesome) environments. Still very much a work in progress!
